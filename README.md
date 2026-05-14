@@ -3,6 +3,8 @@
 A real-time **Barnsley fern** generator written in Rust, compiled to
 WebAssembly, and rendered in the browser via an HTML5 canvas.
 
+**Live demo:** https://rydn.github.io/ferngen-rust-wasm/
+
 ## Features
 
 - **Rust → WASM core**: a tight iteration loop with an inline xorshift64
