@@ -22,8 +22,17 @@ const itersEl = document.getElementById("iters");
 const plottedEl = document.getElementById("plotted");
 const ipsEl = document.getElementById("ips");
 const ppsEl = document.getElementById("pps");
+const renderTimeEl = document.getElementById("renderTime");
 
 const fmt = new Intl.NumberFormat("en-US");
+
+function fmtDuration(seconds) {
+    if (seconds < 1) return `${Math.round(seconds * 1000)} ms`;
+    if (seconds < 60) return `${seconds.toFixed(2)} s`;
+    const m = Math.floor(seconds / 60);
+    const s = seconds - m * 60;
+    return `${m}m ${s.toFixed(1)}s`;
+}
 
 function fmtZoom(z) {
     if (z >= 1000) return z.toExponential(2) + "×";
@@ -172,6 +181,7 @@ async function main() {
         plottedEl.textContent = "0";
         ipsEl.textContent = "—";
         ppsEl.textContent = "—";
+        renderTimeEl.textContent = "—";
         lastSampleTime = performance.now();
         lastSampleIters = 0n;
         lastSamplePlotted = 0n;
@@ -247,6 +257,7 @@ async function main() {
         plottedEl.textContent = "0";
         ipsEl.textContent = "—";
         ppsEl.textContent = "—";
+        renderTimeEl.textContent = "—";
         lastSampleTime = performance.now();
         lastSampleIters = 0n;
         lastSamplePlotted = 0n;
@@ -289,6 +300,7 @@ async function main() {
                 const avgPps = Number(renderer.plotted()) / Math.max(elapsed, 1e-6);
                 ipsEl.textContent = `${fmt.format(Math.round(avgIps))} avg`;
                 ppsEl.textContent = `${fmt.format(Math.round(avgPps))} avg`;
+                renderTimeEl.textContent = fmtDuration(elapsed);
             }
         }
 
@@ -312,6 +324,7 @@ async function main() {
         plottedEl.textContent = "0";
         ipsEl.textContent = "—";
         ppsEl.textContent = "—";
+        renderTimeEl.textContent = "—";
         lastSampleTime = performance.now();
         lastSampleIters = 0n;
         lastSamplePlotted = 0n;
