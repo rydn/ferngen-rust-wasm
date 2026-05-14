@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Barnsley Fern</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+    <h1>Barnsley Fern</h1>
+</header>
+<main>
+    <div class="canvas-wrap">
+        <canvas id="fern" width="800" height="1000"></canvas>
+    </div>
+    <aside class="controls">
+        <div class="row">
+            <button id="toggle">Pause</button>
+            <button id="reset">Reset</button>
+        </div>
+        <fieldset>
+            <legend>View</legend>
+            <div class="row">
+                <button id="zoomOut" title="Zoom out 2×">−</button>
+                <span id="zoomVal" class="zoom">1.00×</span>
+                <button id="zoomIn" title="Zoom in 2×">+</button>
+                <button id="resetView" title="Reset view">⤺</button>
+            </div>
+            <p class="hint">Drag the fern to pan (ghost preview). Mouse-wheel to zoom.</p>
+        </fieldset>
+        <label>
+            Iterations / step
+            <input id="batch" type="range" min="100" max="10000000" step="100" value="150000" />
+            <span id="batchVal">150,000</span>
+        </label>
+        <label>
+            Delay between steps (ms)
+            <input id="delay" type="range" min="0" max="1000" step="5" value="0" />
+            <span id="delayVal">0 ms</span>
+        </label>
+        <label>
+            Max plotted points
+            <input id="maxIters" type="range" min="1000000" max="50000000" step="100000" value="5000000" />
+            <span id="maxItersVal">5,000,000</span>
+        </label>
+        <div class="stats">
+            <div>Total iterations: <span id="iters">0</span></div>
+            <div>Plotted: <span id="plotted">0</span></div>
+            <div>Iter / sec: <span id="ips">0</span></div>
+            <div>Center: <span id="centerVal">0.0000, 5.5000</span></div>
+        </div>
+    </aside>
+</main>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
