@@ -68,6 +68,16 @@ button {
     font: inherit;
 }
 button:hover { background: #243029; border-color: var(--accent); }
+select {
+    background: #1c2521;
+    color: var(--fg);
+    border: 1px solid #2a3530;
+    border-radius: 4px;
+    padding: 0.35rem 0.5rem;
+    font: inherit;
+    cursor: pointer;
+}
+select:hover { border-color: var(--accent); }
 label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; color: #8aa098; }
 input[type="range"] { accent-color: var(--accent); }
 .stats { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85rem; color: #8aa098; }

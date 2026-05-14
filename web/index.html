@@ -18,6 +18,7 @@
         <div class="row">
             <button id="toggle">Pause</button>
             <button id="reset">Reset</button>
+            <button id="savePng" title="Save canvas as PNG">Save PNG</button>
         </div>
         <fieldset>
             <legend>View</legend>
@@ -30,8 +31,29 @@
             <p class="hint">Drag the fern to pan (ghost preview). Mouse-wheel to zoom.</p>
         </fieldset>
         <label>
+            Variant
+            <select id="variant">
+                <option value="0">Classic Barnsley</option>
+                <option value="1">Cyclosorus</option>
+                <option value="2">Culcita</option>
+                <option value="3">Modified Barnsley</option>
+            </select>
+        </label>
+        <label>
+            Color scheme
+            <select id="palette">
+                <option value="green">Green</option>
+                <option value="amber">Amber</option>
+                <option value="cyan">Cyan</option>
+                <option value="magenta">Magenta</option>
+                <option value="inferno">Inferno</option>
+                <option value="rainbow">Rainbow</option>
+                <option value="gray">Grayscale</option>
+            </select>
+        </label>
+        <label>
             Iterations / step
-            <input id="batch" type="range" min="100" max="10000000" step="100" value="150000" />
+            <input id="batch" type="range" min="100" max="10000000" step="100" value="300000" />
             <span id="batchVal">150,000</span>
         </label>
         <label>
@@ -48,6 +70,7 @@
             <div>Total iterations: <span id="iters">0</span></div>
             <div>Plotted: <span id="plotted">0</span></div>
             <div>Iter / sec: <span id="ips">0</span></div>
+            <div>Plotted / sec: <span id="pps">0</span></div>
             <div>Center: <span id="centerVal">0.0000, 5.5000</span></div>
         </div>
     </aside>
