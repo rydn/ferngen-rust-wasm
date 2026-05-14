@@ -36,7 +36,7 @@ xscr = w/2 + (x − cx) · (w/6)  · zoom
 yscr = h/2 − (y − cy) · (h/11) · zoom    # y inverted
 ```
 
-Per-plot color buildup (matches the BASIC reference exactly):
+Per-plot color buildup
 
 ```
 if g < 255: g = (7·g)/8 + 33; pixel = (0, g, 0)
